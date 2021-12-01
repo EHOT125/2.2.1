@@ -30,6 +30,26 @@ public class Car {
         this.series = series;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Car car = (Car) o;
+
+        if (series != car.series) return false;
+        if (id != null ? !id.equals(car.id) : car.id != null) return false;
+        return model != null ? model.equals(car.model) : car.model == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        result = 31 * result + series;
+        return result;
+    }
+
     public Long getId() {
         return id;
     }
