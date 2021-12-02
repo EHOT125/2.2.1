@@ -38,14 +38,12 @@ public class Car {
         Car car = (Car) o;
 
         if (series != car.series) return false;
-        if (id != null ? !id.equals(car.id) : car.id != null) return false;
         return model != null ? model.equals(car.model) : car.model == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (model != null ? model.hashCode() : 0);
+        int result = model != null ? model.hashCode() : 0;
         result = 31 * result + series;
         return result;
     }
